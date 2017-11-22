@@ -34,6 +34,16 @@ class Image
     private $caption;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Trick")
+     */
+    private $trick;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     */
+    private $user;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -80,5 +90,39 @@ class Image
     {
         $this->caption = $caption;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTrick()
+    {
+        return $this->trick;
+    }
+
+    /**
+     * @param mixed $trick
+     */
+    public function setTrick(Trick $trick)
+    {
+        $this->trick = $trick;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+    }
+
+
 
 }
