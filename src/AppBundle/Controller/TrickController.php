@@ -43,6 +43,11 @@ class TrickController extends Controller
         $trick = $em->getRepository('AppBundle:Trick')
             ->findOneBy(['name' => $trickName]);
 
+        // Only for Dev
+        if (!$trick) {
+            throw $this->createNotFoundException('No trick found');
+        };
+
         return $this->render('trick/show.html.twig', array(
             'trick' => $trick,
             'comments' => $comments,
