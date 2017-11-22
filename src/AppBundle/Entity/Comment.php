@@ -39,6 +39,11 @@ class Comment
     private $trick;
 
     /**
+     * @ORM\ManyToOne(targetEntity="User")
+     */
+    private $user;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -100,6 +105,22 @@ class Comment
     public function setTrick(Trick $trick)
     {
         $this->trick = $trick;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
     }
 
 
