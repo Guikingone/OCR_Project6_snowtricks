@@ -34,6 +34,11 @@ class Comment
     private $created_at;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Trick")
+     */
+    private $trick;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -80,5 +85,22 @@ class Comment
     {
         $this->created_at = $created_at;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTrick()
+    {
+        return $this->trick;
+    }
+
+    /**
+     * @param mixed $trick
+     */
+    public function setTrick(Trick $trick)
+    {
+        $this->trick = $trick;
+    }
+
 
 }
