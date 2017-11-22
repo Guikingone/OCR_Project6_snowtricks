@@ -20,7 +20,7 @@ class CommentRepository extends EntityRepository
     public function findAllForTrickOrderedByCreatedAt($trickName)
     {
         return $this->createQueryBuilder('comment')
-            ->orderBy('comment.created_at', 'DESC')
+            ->orderBy('comment.createdAt', 'DESC')
             ->getQuery()
             ->execute();
     }

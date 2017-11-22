@@ -45,7 +45,6 @@ class Trick
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\Column(nullable=false)
      */
     private $user;
 

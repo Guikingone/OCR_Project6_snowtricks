@@ -31,7 +31,7 @@ class Comment
     /**
      * @ORM\Column(type="datetime")
      */
-    private $created_at;
+    private $createdAt;
 
     /**
      * @ORM\ManyToOne(targetEntity="Trick")
@@ -40,13 +40,11 @@ class Comment
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\Column(nullable=false)
      */
     private $user;
 
     /**
      * @return mixed
-     * @ORM\Column(nullable=false)
      */
     public function getId()
     {
@@ -82,15 +80,15 @@ class Comment
      */
     public function getCreatedAt()
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
     /**
-     * @param mixed $created_at
+     * @param mixed $createdAt
      */
-    public function setCreatedAt($created_at)
+    public function setCreatedAt($createdAt)
     {
-        $this->created_at = $created_at;
+        $this->createdAt = $createdAt;
     }
 
     /**
