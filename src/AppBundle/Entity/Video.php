@@ -35,6 +35,11 @@ class Video
     private $caption;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Trick")
+     */
+    private $trick;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -81,5 +86,23 @@ class Video
     {
         $this->caption = $caption;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTrick()
+    {
+        return $this->trick;
+    }
+
+    /**
+     * @param mixed $trick
+     */
+    public function setTrick(Trick $trick)
+    {
+        $this->trick = $trick;
+    }
+
+
 
 }
