@@ -1,0 +1,11 @@
+<h1>This is the list page</h1>
+<p>The page title is {{ title }}</p>
+
+{% for trick in tricks %}
+    <ul>
+        <li>
+            <p>{{ trick.name }}</p>
+            <p>created on {{ trick.createdAt | date("d/m/Y") }}</p>
+        </li>
+    </ul>
+{% endfor %}
