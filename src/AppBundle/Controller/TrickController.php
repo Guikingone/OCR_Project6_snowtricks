@@ -12,10 +12,16 @@ class TrickController extends Controller
     /**
      * @Route("/")
      */
-    public function indexAction()
+    public function listAction()
     {
+        $em = $this->getDoctrine()->getManager();
+        $tricks = $em->getRepository('AppBundle:Trick')
+            ->findAll();
+
+
         return $this->render('trick/list.html.twig', array(
-            'title' => 'Snowtricks'
+            'title' => 'Snowtricks',
+            'tricks' => $tricks,
         ));
     }
 
