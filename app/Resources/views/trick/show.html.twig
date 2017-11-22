@@ -1,5 +1,12 @@
-<h1>This is the show page</h1>
-<p>The trick is {{ name }}</p>
+<p>This is the show page</p>
+<h1>{{ trick.name }}</h1>
+<h2>{{ trick.group }}</h2>
+<p>{{ trick.description }}</p>
+<h2>Displaying pictures here</h2>
+<h2>Displaying videos here</h2>
+
+<br />
+<h2>Form - Leave your comments here ;)</h2>
 <p>
     {% for comment in comments %}
         <ul>
@@ -7,3 +14,6 @@
         </ul>
     {% endfor %}
 </p>
+
+<form action=""></form>
+<a href="{{ path('trick_list') }}" class="btn">Return to list</a>

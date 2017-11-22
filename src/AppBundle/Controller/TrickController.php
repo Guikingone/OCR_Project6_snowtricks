@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\AppBundle;
+use AppBundle\Entity\Trick;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 class TrickController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="trick_list")
      */
     public function listAction()
     {
@@ -26,7 +28,7 @@ class TrickController extends Controller
     }
 
     /**
-     * @Route("/trick/{trickName}")
+     * @Route("/trick/{trickName}", name="trick_show")
      * @param $trickName
      */
     public function showAction($trickName)
@@ -37,8 +39,12 @@ class TrickController extends Controller
             'comment 3',
         );
 
+        $em = $this->getDoctrine()->getManager();
+        $trick = $em->getRepository('AppBundle:Trick')
+            ->findOneBy(['name' => $trickName]);
+
         return $this->render('trick/show.html.twig', array(
-            'name' => $trickName,
+            'trick' => $trick,
             'comments' => $comments,
         ));
 
