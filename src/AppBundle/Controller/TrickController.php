@@ -28,20 +28,19 @@ class TrickController extends Controller
     }
 
     /**
-     * @Route("/trick/{trickName}", name="trick_show")
-     * @param $trickName
+     * @Route("/trick/{name}", name="trick_show")
      */
-    public function showAction($trickName)
+    public function showAction(Trick $trickName)
     {
         $em = $this->getDoctrine()->getManager();
 
         // Fetching the trick
         $trick = $em->getRepository('AppBundle:Trick')
-            ->findOneBy(['name' => $trickName]);
+            ->findOneBy(['name' => $trickName->getName()]);
 
         // Fetching the comments related to the trick
         $comments = $em->getRepository('AppBundle:Comment')
-            ->findAllForTrickOrderedByCreatedAt($trickName);
+            ->findAllForTrickOrderedByCreatedAt($trickName->getId());
 
         // Only for Dev
         if (!$trick) {
