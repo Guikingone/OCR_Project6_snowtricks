@@ -18,7 +18,7 @@ class TrickController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $tricks = $em->getRepository('AppBundle:Trick')
-            ->findAll();
+            ->findAllOrderedByCreatedAt();
 
 
         return $this->render('trick/list.html.twig', array(
