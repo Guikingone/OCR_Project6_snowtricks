@@ -35,16 +35,19 @@ class Image
 
     /**
      * @ORM\ManyToOne(targetEntity="Trick")
+     * @ORM\Column(nullable=false)
      */
     private $trick;
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\Column(nullable=false)
      */
     private $user;
 
     /**
      * @return mixed
+     *
      */
     public function getId()
     {

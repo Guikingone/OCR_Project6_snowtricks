@@ -40,11 +40,13 @@ class Comment
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\Column(nullable=false)
      */
     private $user;
 
     /**
      * @return mixed
+     * @ORM\Column(nullable=false)
      */
     public function getId()
     {

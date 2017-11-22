@@ -45,6 +45,7 @@ class Trick
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\Column(nullable=false)
      */
     private $user;
 
@@ -139,7 +140,7 @@ class Trick
     /**
      * @param mixed $user
      */
-    public function setUser($user)
+    public function setUser(User $user)
     {
         $this->user = $user;
     }

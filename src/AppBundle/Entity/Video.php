@@ -36,6 +36,7 @@ class Video
 
     /**
      * @ORM\ManyToOne(targetEntity="Trick")
+     * @ORM\Column(nullable=false)
      */
     private $trick;
 
@@ -102,7 +103,5 @@ class Video
     {
         $this->trick = $trick;
     }
-
-
 
 }
