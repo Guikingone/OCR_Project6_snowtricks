@@ -30,17 +30,17 @@ class TrickController extends Controller
     /**
      * @Route("/trick/{name}", name="trick_show")
      */
-    public function showAction(Trick $trickName)
+    public function showAction(Trick $trick)
     {
         $em = $this->getDoctrine()->getManager();
 
-        // Fetching the trick
-        $trick = $em->getRepository('AppBundle:Trick')
-            ->findOneBy(['name' => $trickName->getName()]);
+        // Fetching the trick - Useless since Symfony finds the Trick on his own
+        // $trick = $em->getRepository('AppBundle:Trick')
+        //    ->findOneBy(['name' => $trickName->getName()]);
 
         // Fetching the comments related to the trick
         $comments = $em->getRepository('AppBundle:Comment')
-            ->findAllForTrickOrderedByCreatedAt($trickName->getId());
+            ->findAllForTrickOrderedByCreatedAt($trick->getId());
 
         // Only for Dev
         if (!$trick) {

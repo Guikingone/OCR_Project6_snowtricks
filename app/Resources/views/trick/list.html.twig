@@ -4,7 +4,7 @@
 {% for trick in tricks %}
     <ul>
         <li>
-            <a href="{{ path('trick_show', {'trickName' : trick.name}) }}">{{ trick.name }}</a>
+            <a href="{{ path('trick_show', {'name' : trick.name}) }}">{{ trick.name }}</a>
             <p>created on {{ trick.createdAt | date("d/m/Y") }}</p>
         </li>
     </ul>
