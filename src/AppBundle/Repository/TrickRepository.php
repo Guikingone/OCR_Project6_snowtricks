@@ -21,6 +21,8 @@ class TrickRepository extends EntityRepository
     {
         return $this->createQueryBuilder('trick')
             ->orderBy('trick.createdAt', 'DESC')
+            ->leftJoin('trick.comments', 'comments')
+            ->addSelect('comments')
             ->getQuery()
             ->execute();
     }
